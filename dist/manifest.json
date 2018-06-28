@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Anime Image Collection",
+    "description": "アニメを見ている時にそのまま画像も保存したい。そんな時に役立つ拡張",
+    "version": "1.0",
+    "permissions": [
+        "declarativeContent",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["http://ch.nicovideo.jp/portal/anime/*"],
+            "js": ["js/jquery.min.js", "js/script.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "browser_action": {},
+    "incognito": "split",
+    "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+    "background": {
+        "scripts": ["js/background-bundle.js"],
+        "persistent": true
+    }
+}
